@@ -1,4 +1,6 @@
 import React, {useContext} from "react";
+import {SymbolInfo} from "react-ts-tradingview-widgets";
+
 import {AiFillPlayCircle} from 'react-icons/ai';
 import {SiEthereum} from 'react-icons/si';
 import {BsInfoCircle} from 'react-icons/bs';
@@ -38,7 +40,7 @@ const Welcome = () => {
           <h1 className="text-5xl text-gradient py-1">
             Send Ethereum <br/> across the world!
           </h1>
-          <p className="text-left mt-5 text-white font-light w-full lg:w-9/12 text-base">
+          <p className="text-left mt-5 text-white font-light text-md w-full lg:w-9/12 text-base">
             Explore the crypto world. Send Ethereum to any address easily using Krypt.
           </p>
           {!currentAccount && (
@@ -51,6 +53,11 @@ const Welcome = () => {
                 <p className="text-black text-base font-semibold mr-5">Connect Wallet</p>
             </button>
           )}
+          <div className="justify-center items-center w-full mt-12">
+            <SymbolInfo colorTheme="dark" symbol="ETH" isTransparent="true" autosize></SymbolInfo>
+          </div>
+
+          {/*
           <div className="grid md:grid-cols-3 grid-cols-2 w-full mt-10">
             <div className={`rounded-tl-2xl ${companyCommonStyles}`}>Reliability</div>
             <div className={`rounded-tr-2xl md:rounded-none ${companyCommonStyles}`}>Security</div>
@@ -58,7 +65,8 @@ const Welcome = () => {
             <div className={`rounded-none md:rounded-bl-2xl ${companyCommonStyles}`}>Web 3.0</div>
             <div className={`rounded-bl-2xl md:rounded-none ${companyCommonStyles}`}>Low Fees</div>
             <div className={`rounded-br-2xl ${companyCommonStyles}`}>Blockchain</div>
-          </div>
+          </div> 
+          */}
         </div>
 
       
