@@ -6,12 +6,14 @@
   box-sizing: border-box;
 }
 
-body {
+body, p{
   margin: 0;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Montserrat", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+h1, h3{font-family: "Roboto", sans-serif;}
 
 .gradient-bg-welcome {
   background-color:#18141d;

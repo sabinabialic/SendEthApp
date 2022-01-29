@@ -8,7 +8,7 @@ const TransactionCard = ({addressTo, addressFrom, timestamp, message, keyword, a
   const gifUrl = useFetch({keyword});
   
   return (
-    <div className='bg-[#18141d] m-4 flex flex-1
+    <div className='bg-[#181918] m-4 flex flex-1
       2xl:min-w-[450px]
       2xl:max-w-[500px]
       sm:min-w-[270px]

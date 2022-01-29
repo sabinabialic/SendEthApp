@@ -12,7 +12,7 @@ const Navbar = () => {
   const [toggleMenu, setToggleMenu] = React.useState(false);
 
   return (
-    <nav className='w-full flex md:justify-end justify-between items-center p-4 pr-10'>
+    <nav className='w-full flex md:justify-end justify-between items-center p-8 pr-10'>
       <ul className="text-white font-light md:flex hidden list-none flex-row justify-between flex-initial cursor-pointer pr-10"
           onClick={() => window.open("https://ethereum.org/en/", "_blank")}>
             About
