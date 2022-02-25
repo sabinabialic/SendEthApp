@@ -1,4 +1,4 @@
-# Web 3.0 ETH Blockchain
+# Web 3.0 ETH Blockchain Web App
 This is a code repository for the corresponding Web 3.0 Blockchain app video tutorial using Web 3.0 methodologies, Solidity and MetaMask.
 
 The original repo can be found [here][repoUrl].
