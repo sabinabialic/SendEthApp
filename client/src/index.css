@@ -6,14 +6,32 @@
   box-sizing: border-box;
 }
 
-body, p{
+body, p {
   margin: 0;
   font-family: "Montserrat", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h3{font-family: "Roboto", sans-serif;}
+h1, h3 {font-family: "Roboto", sans-serif;}
+
+.navbar-text {
+  color: #fff;
+  font-style: normal;
+  font-weight: 400;
+  list-style: none;
+  flex: initial;
+  justify-content: space-between;
+  flex-direction: row;
+  cursor: pointer;
+  padding-right: 2em;
+}
+
+.navbar-mobile-text {
+  cursor: pointer;
+  padding-top: 10px;
+  padding-right:40px;
+}
 
 .gradient-bg-welcome {
   background-color:#18141d;
@@ -78,6 +96,13 @@ h1, h3{font-family: "Roboto", sans-serif;}
   radial-gradient(at 100% 50%, #000000 0, transparent 50%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .navbar-text {
+    visibility: hidden;
+  }
 }
 
 @tailwind base;

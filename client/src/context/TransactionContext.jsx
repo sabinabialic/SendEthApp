@@ -28,9 +28,11 @@ export const TransactionProvider = ({children}) => {
   const getAllTransactions = async() => {
     try {
       if(!ethereum) return alert("Please install MetaMask!");
+      // Get the contract and all available transactions
       const transactionContract = getEthereumContract();
       const availableTransactions = await transactionContract.getAllTransactions();
-      
+
+      // Formatting the available transactions
       const structuredTransactions = availableTransactions.map((transaction) => ({
         addressTo: transaction.receiver,
         addressFrom: transaction.sender,
@@ -39,22 +41,22 @@ export const TransactionProvider = ({children}) => {
         keyword: transaction.keyword,
         amount: parseInt(transaction.amount._hex) / (10 ** 18)
       }))
-      
+      // Log the array of transactions
       console.log(structuredTransactions);
       setTransactions(structuredTransactions);
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) { console.log(error); }
   };
 
   const checkWalletConnected = async() => {
     try {
       if(!ethereum) return alert("Please install MetaMask!");
+      // Get the eth account
       const accounts = await ethereum.request({method: 'eth_accounts'});
-
+      // If an account exists, set the current account and get all transactions
       if(accounts.length) {
         setCurrentAccount(accounts[0]);
         getAllTransactions();
+        // console.log("Current account:" + accounts[0]);
       } else { console.log("No accounts found.")}
     } catch(error) {
       console.log(error);
@@ -67,7 +69,7 @@ export const TransactionProvider = ({children}) => {
         if(ethereum) {
           const transactionContract = getEthereumContract();
           const transactionCount = await transactionContract.getTransactionCount();
-          
+          // Set the number of transactions in local storage
           window.localStorage.setItem('transactionCount', transactionCount);
       }
     } catch (error) {
@@ -79,6 +81,7 @@ export const TransactionProvider = ({children}) => {
   const connectWallet = async() => {
     try {
       if(!ethereum) return alert("Please install MetaMask!");
+      // Get available account and set it as the current account
       const accounts = await ethereum.request({method: 'eth_requestAccounts'});
       setCurrentAccount(accounts[0]);
     } catch(error) {
@@ -90,7 +93,8 @@ export const TransactionProvider = ({children}) => {
   const sendTransaction = async() => {
     try {
       if(!ethereum) return alert("Please install MetaMask!");
-      // Get the data from the form
+
+      // Get the data from the form and set the contract
       const {addressTo, amount, keyword, message} = formData;
       const transactionContract = getEthereumContract();
       // Converts decimal amount into GWEI hexadecimal amoint
@@ -106,7 +110,7 @@ export const TransactionProvider = ({children}) => {
         }]
       });
 
-      // Store transaction
+      // Store transaction to the blockcgain
       const transactionHash = await transactionContract.addToBlockchain(addressTo, parsedAmount, message, keyword);
       setIsLoading(true);
       console.log(`Loading - ${transactionHash.hash}`);
@@ -119,7 +123,7 @@ export const TransactionProvider = ({children}) => {
       // Get the number of transactions
       const transactionCount = await transactionContract.getTransactionCount();
       setTransactionCount(transactionCount.toNumber());
-      
+      // Reload once compleated
       window.reload();
     } catch(error) {
         console.log(error);
