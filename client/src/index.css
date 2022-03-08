@@ -98,6 +98,11 @@ h1, h3 {font-family: "Roboto", sans-serif;}
   -webkit-text-fill-color: transparent;
 }
 
+.toggle-contents {
+  display: flex;
+  justify-content: space-between;
+}
+
 @media only screen and (max-width: 768px) {
   /* For mobile phones: */
   .navbar-text {

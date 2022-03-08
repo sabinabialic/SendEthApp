@@ -1,7 +1,7 @@
 import React, {useContext} from "react";
 import {SymbolInfo} from "react-ts-tradingview-widgets";
 
-import {AiFillPlayCircle} from 'react-icons/ai';
+import {AiFillPlayCircle, AiOutlineEyeInvisible, AiOutlineEye} from 'react-icons/ai';
 import {SiEthereum} from 'react-icons/si';
 import {BsInfoCircle} from 'react-icons/bs';
 import {TransactionContext} from '../context/TransactionContext';
@@ -33,9 +33,22 @@ const Welcome = () => {
     sendTransaction();
   };
 
+  function myFunction() {
+    var toggleButton = document.getElementById("toggleButton").onclick;
+    var walletText = document.getElementById("balanceText");
+  
+    if (walletText.innerText === "x x x x x x x x x x x x x") {
+      walletText.innerText = walletBalance;
+    } else {
+      walletText.innerText = "x x x x x x x x x x x x x";
+    }
+  
+    console.log("clicked me");
+  };
+
   return (
     <div className="flex w-full justify-center items-center pb-2">
-      <div className="flex mf:flex-row flex-col items-start justify-between md:p-20 py-12 px-4">
+      <div className="flex mf:flex-row flex-col items-start md:p-20 py-12 px-6">
         <div className="flex flex-1 justify-center lg:items-start items-center flex-col mf:mr-10">
           <h1 className="text-start text-5xl text-gradient py-5">
             Send Ethereum <br/> Across the World!
@@ -58,7 +71,17 @@ const Welcome = () => {
           {currentAccount && (
             <div className="text-white justify-center text-start items-start mt-14">
               <h1 className='text-5xl'>Ethereum Balance</h1>
-              <h2 className='text-xl mt-5'>{walletBalance}</h2>
+              <div className="toggle-contents">
+                <h2 id="balanceText" className='text-xl mt-5'>{walletBalance}</h2>
+                <button
+                  id="toggleButton"
+                  type="button"
+                  onClick={myFunction}
+                  className="flex items-center ml-10 mt-5 bg-[#ffffff] rounded-2xl cursor-pointer hover:bg-[#e7e7e7]">
+                    <AiOutlineEyeInvisible className="text-black ml-4 mr-2"/>
+                    <p className="text-black font-semibold mr-4">Toggle</p>
+                </button>
+              </div>
             </div>     
           )}
 
