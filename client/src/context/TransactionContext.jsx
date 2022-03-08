@@ -23,6 +23,7 @@ const getEthereumContract = () => {
 
 export const TransactionProvider = ({children}) => {
   const[currentAccount, setCurrentAccount] = useState('');
+  const[walletBalance, setWalletBalance] = useState('');
   const[formData, setFormData] = useState({addressTo: '', amount: '', keyword:'', message:''});
   const[isLoading, setIsLoading] = useState(false);
   const[transactionCount, setTransactionCount] = useState(localStorage.getItem('transactionCount'));
@@ -63,7 +64,14 @@ export const TransactionProvider = ({children}) => {
       if(accounts.length) {
         setCurrentAccount(accounts[0]);
         getAllTransactions();
-        // console.log("Current account:" + accounts[0]);
+        //console.log("Current account:" + accounts[0]);
+
+        const provider = new ethers.providers.Web3Provider(ethereum);
+        const balance = await provider.getBalance(accounts[0]);
+        const parsedBalance = ethers.utils.formatEther(balance);
+        setWalletBalance(parsedBalance);
+        console.log(parsedBalance);
+
       } else { console.log("No accounts found.")}
     } catch(error) {
       console.log(error);
@@ -95,17 +103,6 @@ export const TransactionProvider = ({children}) => {
         console.log(error);
         throw new Error("No Ethereum object.");
     }
-  };
-
-  // TODO - Implement function to get wallet balance
-  const getBalance = async() => {
-    try {
-      if(!ethereum) return alert("Please install MetaMask!");
-      const balance = await provider.getBalance(currentAccount);
-    } catch(error) {
-      console.log(error);
-      throw new Error("No Ethereum object.");
-    }      
   };
 
   const sendTransaction = async() => {
@@ -155,7 +152,7 @@ export const TransactionProvider = ({children}) => {
   }, [transactionCount]);
 
   return (
-    <TransactionContext.Provider value={{connectWallet, currentAccount, formData, handleChange, sendTransaction, transactions, isLoading}}>
+    <TransactionContext.Provider value={{connectWallet, currentAccount, walletBalance, formData, handleChange, sendTransaction, transactions, isLoading}}>
       {children}
     </TransactionContext.Provider>
   );

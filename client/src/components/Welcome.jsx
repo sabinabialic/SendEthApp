@@ -23,7 +23,7 @@ const Input = ({placeholder, name, type, value, handleChange}) => (
 );
 
 const Welcome = () => {
-  const {connectWallet, currentAccount, formData, handleChange, sendTransaction, isLoading} = useContext(TransactionContext);
+  const {connectWallet, currentAccount, walletBalance, formData, handleChange, sendTransaction, isLoading} = useContext(TransactionContext);
 
   const handleSubmit = (e) => {
     const {addressTo, amount, keyword, message} = formData;
@@ -55,20 +55,21 @@ const Welcome = () => {
             </button>
           )}
 
-          {/* {currentAccount && (
-            <div>
-              <h3 className='text-white text-3xl text-center my-2'>Ethereum Balance</h3>
+          {currentAccount && (
+            <div className="text-white text-left items-start mt-10">
+              <h1 className='text-5xl'>Ethereum Balance</h1>
+              <h2 className='text-2xl text-base'>{walletBalance}</h2>
             </div>     
-          )} */}
+          )}
 
-          <div className="grid sm:grid-cols-3 grid-cols-2 w-full mt-10">
+          {/* <div className="grid sm:grid-cols-3 grid-cols-2 w-full mt-10">
             <div className={`rounded-tl-2xl ${companyCommonStyles}`}>Reliable</div>
             <div className={companyCommonStyles}>Secure</div>
             <div className={`sm:rounded-tr-2xl ${companyCommonStyles}`}>Ethereum</div>
             <div className={`sm:rounded-bl-2xl ${companyCommonStyles}`}>Web 3.0</div>
             <div className={companyCommonStyles}>Low Fees</div>
             <div className={`rounded-br-2xl ${companyCommonStyles}`}>Blockchain</div>
-          </div>
+          </div> */}
           
         </div> 
         <div className="flex flex-col flex-1 items-center justify-start w-full mf:mt-0 mt-10">
