@@ -36,13 +36,13 @@ const Welcome = () => {
   return (
     <div className="flex w-full justify-center items-center pb-2">
       <div className="flex mf:flex-row flex-col items-start justify-between md:p-20 py-12 px-4">
-        <div className="flex flex-1 justify-start items-start flex-col mf:mr-10">
-          <h1 className="text-5xl text-gradient py-1">
+        <div className="flex flex-1 justify-center lg:items-start items-center flex-col mf:mr-10">
+          <h1 className="text-start text-5xl text-gradient py-5">
             Send Ethereum <br/> Across the World!
           </h1>
-          <p className="text-left mt-5 text-white text-xl text-md w-full lg:w-9/12 text-base">
+          <h2 className="text-white text-start text-xl mt-5 lg:w-10/12">
             Explore the crypto world and send Ethereum to any address easily.
-          </p>
+          </h2>
 
           {!currentAccount && (
             <button
@@ -51,14 +51,14 @@ const Welcome = () => {
               className="flex flex-row justify-center items-center w-full lg:w-2/3 my-6 bg-[#ffffff] p-4 rounded-2xl cursor-pointer hover:bg-[#e7e7e7]"
               >
                 <AiFillPlayCircle className="text-black ml-3 mr-5"/>
-                <p className="text-black text-base font-semibold mr-5">Connect Wallet</p>
+                <p className="text-black font-semibold mr-5">Connect Wallet</p>
             </button>
           )}
 
           {currentAccount && (
-            <div className="text-white text-left items-start mt-10">
+            <div className="text-white justify-center text-start items-start mt-14">
               <h1 className='text-5xl'>Ethereum Balance</h1>
-              <h2 className='text-2xl text-base'>{walletBalance}</h2>
+              <h2 className='text-xl mt-5'>{walletBalance}</h2>
             </div>     
           )}
 
