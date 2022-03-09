@@ -37,10 +37,10 @@ const Welcome = () => {
     var toggleButton = document.getElementById("toggleButton").onclick;
     var walletText = document.getElementById("balanceText");
   
-    if (walletText.innerText === "x x x x x x x x x x x x x") {
+    if (walletText.innerText === "x x x x x x x x x x x x x x x") {
       walletText.innerText = walletBalance;
     } else {
-      walletText.innerText = "x x x x x x x x x x x x x";
+      walletText.innerText = "x x x x x x x x x x x x x x x";
     }
   
     console.log("clicked me");
@@ -72,12 +72,12 @@ const Welcome = () => {
             <div className="text-white justify-center text-start items-start mt-14">
               <h1 className='text-5xl'>Ethereum Balance</h1>
               <div className="toggle-contents">
-                <h2 id="balanceText" className='text-xl mt-5'>{walletBalance}</h2>
+                <h2 id="balanceText" className='text-xl mt-6'>{walletBalance}</h2>
                 <button
                   id="toggleButton"
                   type="button"
                   onClick={myFunction}
-                  className="flex items-center ml-10 mt-5 bg-[#ffffff] rounded-2xl cursor-pointer hover:bg-[#e7e7e7]">
+                  className="flex items-center ml-5 mt-5 bg-[#ffffff] rounded-xl cursor-pointer hover:bg-[#e7e7e7]">
                     <AiOutlineEyeInvisible className="text-black ml-4 mr-2"/>
                     <p className="text-black font-semibold mr-4">Toggle</p>
                 </button>

@@ -99,6 +99,7 @@ h1, h3 {font-family: "Roboto", sans-serif;}
 }
 
 .toggle-contents {
+  flex: initial;
   display: flex;
   justify-content: space-between;
 }

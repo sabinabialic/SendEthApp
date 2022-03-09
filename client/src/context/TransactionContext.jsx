@@ -64,7 +64,7 @@ export const TransactionProvider = ({children}) => {
       if(accounts.length) {
         setCurrentAccount(accounts[0]);
         getAllTransactions();
-        //console.log("Current account:" + accounts[0]);
+        console.log("Current account:" + accounts[0]);
 
         const provider = new ethers.providers.Web3Provider(ethereum);
         const balance = await provider.getBalance(accounts[0]);
