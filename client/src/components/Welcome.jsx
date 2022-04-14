@@ -1,15 +1,10 @@
 import React, {useContext} from "react";
-import {SymbolInfo} from "react-ts-tradingview-widgets";
-
 import {AiFillPlayCircle, AiOutlineEyeInvisible, AiOutlineEye} from 'react-icons/ai';
 import {SiEthereum} from 'react-icons/si';
 import {BsInfoCircle} from 'react-icons/bs';
 import {TransactionContext} from '../context/TransactionContext';
 import {shortenAddress} from "../utils/shortenAddress";
 import {Loader} from './';
-
-const companyCommonStyles = "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white";
-
 
 const Input = ({placeholder, name, type, value, handleChange}) => (
   <input
@@ -33,27 +28,23 @@ const Welcome = () => {
     sendTransaction();
   };
 
-  function myFunction() {
-    var toggleButton = document.getElementById("toggleButton").onclick;
+  function toggleWalletText() {
     var walletText = document.getElementById("balanceText");
-  
     if (walletText.innerText === "x x x x x x x x x x x x x x x") {
       walletText.innerText = walletBalance;
     } else {
       walletText.innerText = "x x x x x x x x x x x x x x x";
     }
-  
-    console.log("clicked me");
   };
 
   return (
     <div className="flex w-full justify-center items-center pb-2">
       <div className="flex mf:flex-row flex-col items-start md:p-20 py-12 px-6">
         <div className="flex flex-1 justify-center lg:items-start items-center flex-col mf:mr-10">
-          <h1 className="text-start text-5xl text-gradient py-5">
-            Send Ethereum <br/> Across the World!
+          <h1 className="title-text text-5xl text-gradient py-5">
+            Send Ethereum Across the World!
           </h1>
-          <h2 className="text-white text-start text-xl mt-5 lg:w-10/12">
+          <h2 className="subtitle-text text-white text-start text-xl mt-5 lg:w-10/12">
             Explore the crypto world and send Ethereum to any address easily.
           </h2>
 
@@ -76,7 +67,7 @@ const Welcome = () => {
                 <button
                   id="toggleButton"
                   type="button"
-                  onClick={myFunction}
+                  onClick={toggleWalletText}
                   className="flex items-center ml-5 mt-5 bg-[#ffffff] rounded-xl cursor-pointer hover:bg-[#e7e7e7]">
                     <AiOutlineEyeInvisible className="text-black ml-4 mr-2"/>
                     <p className="text-black font-semibold mr-4">Toggle</p>
@@ -84,15 +75,6 @@ const Welcome = () => {
               </div>
             </div>     
           )}
-
-          {/* <div className="grid sm:grid-cols-3 grid-cols-2 w-full mt-10">
-            <div className={`rounded-tl-2xl ${companyCommonStyles}`}>Reliable</div>
-            <div className={companyCommonStyles}>Secure</div>
-            <div className={`sm:rounded-tr-2xl ${companyCommonStyles}`}>Ethereum</div>
-            <div className={`sm:rounded-bl-2xl ${companyCommonStyles}`}>Web 3.0</div>
-            <div className={companyCommonStyles}>Low Fees</div>
-            <div className={`rounded-br-2xl ${companyCommonStyles}`}>Blockchain</div>
-          </div> */}
           
         </div> 
         <div className="flex flex-col flex-1 items-center justify-start w-full mf:mt-0 mt-10">

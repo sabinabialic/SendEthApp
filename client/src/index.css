@@ -56,8 +56,8 @@ h1, h3 {font-family: "Roboto", sans-serif;}
 .gradient-bg-footer {
   background-color: #18141d;
   background-image:
-    radial-gradient(at 0% 100%, #2f2157 0, transparent 53%),
-    radial-gradient(at 50% 150%, #722768 0, transparent 50%);
+    radial-gradient(at 50% 0%, #5f288b 0, transparent 50%),
+    radial-gradient(at 50% 50%, #a43eb1 0, transparent 0%);
 }
 
 .purple-glassmorphism {
@@ -102,6 +102,21 @@ h1, h3 {font-family: "Roboto", sans-serif;}
   flex: initial;
   display: flex;
   justify-content: space-between;
+}
+
+.title-text {
+  justify-content: start;
+}
+
+@media only screen and (max-width: 880px) {
+  .title-text {
+    text-align: center;
+  }
+
+  .subtitle-text {
+    text-align: center;
+    padding: 10px;
+  }
 }
 
 @media only screen and (max-width: 768px) {
